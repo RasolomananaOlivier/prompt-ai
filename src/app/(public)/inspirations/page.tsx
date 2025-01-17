@@ -3,20 +3,12 @@ import Dropdown from "@/components/Dropdown";
 import PostList from "@/components/PostList";
 import SearchBar from "@/components/SearchBar";
 import SearchTag from "@/components/SearchTag";
-import { Prompt } from "@/types";
 import React from "react";
 
 type Props = {};
 
 const PLATFORMS_OPTIONS = ["All Platforms", "Dall E", "Firefly", "MidJourney"];
 const SORT_OPTIONS = ["Popular", "Recent"];
-
-const fakeData: Prompt[] = [
-  {
-    id: 1,
-    tag: "test",
-  },
-];
 
 function InspirationsPage({}: Props) {
   return (
@@ -47,7 +39,7 @@ function InspirationsPage({}: Props) {
 
       <SearchTag />
 
-      <PostList posts={fakeData} />
+      {/* <PostList posts={fakeData} /> */}
     </main>
   );
 }

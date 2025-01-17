@@ -1,12 +1,9 @@
-export interface Prompt {
-  id: number;
-  tag: String;
-}
+import { IPost } from "./server/database/models/post";
 
-export interface PromptText extends Prompt {
+export interface IPostText extends IPost {
   prompt: String;
 }
 
-export interface PromptImage extends Prompt {
+export interface IPostImage extends IPost {
   url: String;
 }

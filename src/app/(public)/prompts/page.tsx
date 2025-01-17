@@ -1,9 +1,8 @@
-import Button from "@/components/Button";
 import Dropdown from "@/components/Dropdown";
 import PostList from "@/components/PostList";
 import SearchBar from "@/components/SearchBar";
 import SearchTag from "@/components/SearchTag";
-import { Prompt } from "@/types";
+import { getPost } from "@/server/actions/post";
 import React from "react";
 
 type Props = {};
@@ -11,16 +10,11 @@ type Props = {};
 const PLATFORMS_OPTIONS = ["All Platforms", "Dall E", "Firefly", "MidJourney"];
 const SORT_OPTIONS = ["Popular", "Recent"];
 
-const fakeData: Prompt[] = [
-  {
-    id: 1,
-    tag: "test",
-  },
-];
+export default async function InspirationsPage({}: Props) {
+  const response = await getPost();
 
-function InspirationsPage({}: Props) {
   return (
-    <main className="flex flex-col gap-6 pt-8">
+    <main className="flex flex-col gap-6 pt-8 container">
       <SearchBar />
 
       <div className="flex flex-col lg:flex-row gap-3">
@@ -45,9 +39,7 @@ function InspirationsPage({}: Props) {
 
       <SearchTag />
 
-      <PostList posts={fakeData} />
+      {response.data != null && <PostList posts={response.data} />}
     </main>
   );
 }
-
-export default InspirationsPage;

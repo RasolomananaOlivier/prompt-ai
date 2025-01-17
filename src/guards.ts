@@ -1,6 +1,6 @@
-import { PromptText } from "./types";
+import { IPostText } from "./types";
 
-export function isPromptText(object: unknown): object is PromptText {
+export function isIPostText(object: unknown): object is IPostText {
   if (object != null && typeof object === "object") {
     return "prompt" in object;
   }

@@ -1,3 +1,4 @@
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 import Link from "next/link";
 import React from "react";
 import { MdEmail, MdPassword } from "react-icons/md";
@@ -25,7 +26,7 @@ export default function LoginPage({}: Props) {
             </Link>
           </div>
 
-          <button className="btn btn-outline">Sign in with Google</button>
+          <GoogleSignInButton />
           <button className="btn btn-outline">Sign in with Github</button>
 
           <div className="flex flex-row justify-center items-center gap-2 text-gray-700 w-full">

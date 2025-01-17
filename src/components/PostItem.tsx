@@ -1,17 +1,15 @@
-import { isPromptText } from "@/guards";
-import { Prompt, PromptImage } from "@/types";
-import Image from "next/image";
 import React from "react";
 import PostItemContent from "./PostItemContent";
+import { IPost } from "@/server/database/models/post";
 
 type Props = {
-  prompt: Prompt;
+  post: IPost;
 };
 
-function PostItem({ prompt }: Props) {
+function PostItem({ post }: Props) {
   return (
     <div className="flex flex-col gap-2 mb-6 break-inside-avoid">
-      <PostItemContent prompt={prompt} />
+      <PostItemContent post={post} />
       <div className="flex justify-between ">
         <h1 className="font-semibold">@prompts</h1>
 

@@ -1,15 +1,19 @@
-import { isPromptText } from "@/guards";
-import { Prompt } from "@/types";
+import { isIPostText } from "@/guards";
+import { IPost } from "@/server/database/models/post";
 import Image from "next/image";
 import React from "react";
 
 type Props = {
-  prompt: Prompt;
+  post: IPost;
 };
 
-const PostItemContent = ({ prompt }: Props) => {
-  if (isPromptText(prompt)) {
-    return <div>text</div>;
+const PostItemContent = ({ post }: Props) => {
+  if (isIPostText(post)) {
+    return (
+      <div className="bg-black p-3 rounded-3xl h-[180px] text-cyan-50 font-bold flex items-center">
+        {post.prompt}
+      </div>
+    );
   }
 
   return (

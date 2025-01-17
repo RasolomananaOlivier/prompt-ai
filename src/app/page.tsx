@@ -1,7 +1,12 @@
 import Feed from "@/components/Feed";
 import SearchBar from "@/components/SearchBar";
+import { getPost } from "@/server/actions/post";
 
-export default function Home() {
+export default async function Home() {
+  const response = await getPost();
+
+  console.log(response);
+
   return (
     <main className="pt-16 flex flex-col items-center px-3">
       <div className="container">
@@ -19,15 +24,17 @@ export default function Home() {
           </p>
 
           <div className="flex justify-center items-center w-full">
-            <div className="md:w-1/2">
+            <div className="w-full md:w-1/2">
               <SearchBar />
             </div>
           </div>
         </section>
 
-        <section className="pt-16 w-full flex flex-col gap-6">
-          <Feed />
-        </section>
+        {response.data && (
+          <section className="pt-16 w-full flex flex-col gap-6">
+            <Feed posts={response.data} />
+          </section>
+        )}
       </div>
     </main>
   );

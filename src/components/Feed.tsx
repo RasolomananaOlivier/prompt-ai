@@ -3,18 +3,13 @@ import Button from "./Button";
 import SearchBar from "./SearchBar";
 import PostList from "./PostList";
 import Link from "next/link";
-import { Prompt } from "@/types";
+import { IPost } from "@/server/database/models/post";
 
-type Props = {};
+type Props = {
+  posts: IPost[];
+};
 
-const fakeData: Prompt[] = [
-  {
-    id: 1,
-    tag: "test",
-  },
-];
-
-const Feed = (props: Props) => {
+const Feed = ({ posts }: Props) => {
   return (
     <div className="flex flex-col gap-7">
       <div className="flex flex-col md:flex-row gap-2 justify-between">
@@ -28,7 +23,7 @@ const Feed = (props: Props) => {
         </div>
       </div>
 
-      <PostList posts={fakeData} />
+      <PostList posts={posts} />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Providers from "@/components/Providers";
 
 const roboto = Montserrat({
   weight: ["400", "700"],
@@ -27,11 +28,13 @@ export default function RootLayout({
           <div className="gradient"></div>
         </div> */}
 
-        <main className="bg-white">
-          <Nav />
+        <Providers>
+          <main className="bg-[#fcfdfd]">
+            <Nav />
 
-          {children}
-        </main>
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );

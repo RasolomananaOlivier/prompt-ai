@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import Button from "./Button";
 import { usePathname } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -17,7 +18,7 @@ export default function Nav() {
 
   return (
     <div className="flex items-center justify-center pt-3">
-      <nav className="navbar bg-base-100 container">
+      <nav className="navbar container">
         <div className="flex-1">
           <Link href="/" className="btn btn-ghost text-xl">
             PromptAI

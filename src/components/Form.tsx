@@ -1,11 +1,11 @@
-import { Prompt } from "@/types";
+import { IPost } from "@/server/database/models/post";
 import Link from "next/link";
 import React from "react";
 
 type Props = {
   type: "Create" | "Update";
-  post: Prompt;
-  setPost: React.Dispatch<Prompt>;
+  post: IPost;
+  setPost: React.Dispatch<IPost>;
   submitting: boolean;
   onSubmit: () => Promise<void>;
 };
@@ -36,12 +36,12 @@ export default function Form(props: Props) {
             id="prompt"
             placeholder="Write your prompt here..."
             required
-            className="input input-bordered w-full mt-2"
+            className="input input-bordered w-full mt-2 h-40 resize-none"
             onChange={(e) => {
-              // setPost({
-              //   ...post,
-              //   prompt: e.target.value,
-              // });
+              setPost({
+                ...post,
+                prompt: e.target.value,
+              });
             }}
           />
         </div>
@@ -59,12 +59,7 @@ export default function Form(props: Props) {
             placeholder="Specify the prompt tags"
             required
             className="w-full input input-bordered mt-2"
-            onChange={(e) => {
-              setPost({
-                ...post,
-                tag: e.target.value,
-              });
-            }}
+            onChange={(e) => {}}
           />
         </div>
 

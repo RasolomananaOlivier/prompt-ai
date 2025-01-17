@@ -1,29 +1,29 @@
 "use client";
 
 import Form from "@/components/Form";
-import { Prompt } from "@/types";
+import { createPost } from "@/server/actions/post";
+import { IPost } from "@/server/database/models/post";
 import React, { useState } from "react";
 
 function CreatePrompts() {
   const [submitting, setSubmitting] = useState(false);
-  const [post, setPost] = useState<Prompt>({
-    id: 0,
-    tag: "",
-  });
+  const [post, setPost] = useState({});
 
   const handleCreatePrompt = async () => {
-    console.log(post);
+    // const result = await createPost(post);
+
+    // console.log(result);
   };
 
   return (
     <div>
-      <Form
+      {/* <Form
         post={post}
         setPost={setPost}
         submitting={submitting}
         type="Create"
         onSubmit={handleCreatePrompt}
-      />
+      /> */}
     </div>
   );
 }
