@@ -1,6 +1,4 @@
 import React from "react";
-import Button from "./Button";
-import SearchBar from "./SearchBar";
 import PostList from "./PostList";
 import Link from "next/link";
 import { IPost } from "@/server/database/models/post";

@@ -1,9 +1,10 @@
 import Feed from "@/components/Feed";
 import SearchBar from "@/components/SearchBar";
-import { getPost } from "@/server/actions/post";
+import { getPost } from "@/server/actions/posts/getPosts";
+import { getTrendingPosts } from "@/server/actions/posts/getTrendingPosts";
 
 export default async function Home() {
-  const response = await getPost();
+  const response = await getTrendingPosts();
 
   console.log(response);
 

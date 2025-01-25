@@ -10,6 +10,7 @@ export async function postSeeder(count: number) {
   const posts = [];
   for (let i = 0; i < count; i++) {
     const post = {
+      title: faker.lorem.words(6),
       prompt: faker.lorem.sentence(),
       author: (await randomUser())[0]._id,
       platforms: (await randomPlatform(3)).map((platform) => platform._id),

@@ -1,11 +1,13 @@
 import { model, models, Schema, Types } from "mongoose";
 
 export interface IPost {
+  title: string;
   prompt?: string;
   url?: string;
   platforms: Types.ObjectId[];
   author: Types.ObjectId;
   views: number;
+  likes: number;
   tags: Types.ObjectId[];
   createdAt: Date;
   updatedAt: Date;
@@ -13,9 +15,11 @@ export interface IPost {
 
 const postSchema = new Schema<IPost>(
   {
+    title: { type: String, required: true },
     prompt: { type: String, required: false },
     url: { type: String, required: false },
     views: { type: Number, default: 0 },
+    likes : { type : Number, default: 0 },
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",
