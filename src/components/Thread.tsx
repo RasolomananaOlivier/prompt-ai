@@ -1,6 +1,6 @@
 "use client";
 
-import { createPost, incrementLikes } from "@/server/actions/post";
+// import { createPost, incrementLikes } from "@/server/actions/post";
 import { useOptimistic, useState, useTransition } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -57,11 +57,10 @@ export function LikeButton({ initialLikes }: { initialLikes: number }) {
       <p>Total Likes: {likes}</p>
       <button
         onClick={async () => {
-          const updatedLikes = await incrementLikes();
-
-          startTransition(() => {
-            setLikes(updatedLikes);
-          });
+          // const updatedLikes = await incrementLikes();
+          // startTransition(() => {
+          //   setLikes(updatedLikes);
+          // });
         }}
       >
         Like

@@ -1,7 +1,7 @@
 "use client";
 
 import Form from "@/components/Form";
-import { createPost } from "@/server/actions/post";
+// import { createPost } from "@/server/actions/post";
 import { IPost } from "@/server/database/models/post";
 import React, { useState } from "react";
 
@@ -11,7 +11,6 @@ function CreatePrompts() {
 
   const handleCreatePrompt = async () => {
     // const result = await createPost(post);
-
     // console.log(result);
   };
 

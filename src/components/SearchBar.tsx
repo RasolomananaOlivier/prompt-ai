@@ -1,6 +1,5 @@
 "use client";
 
-import { createPost } from "@/server/actions/post";
 import React from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { BsSearch } from "react-icons/bs";

@@ -1,7 +1,7 @@
 import Feed from "@/components/Feed";
 import PostItemContent from "@/components/PostItemContent";
 import PostList from "@/components/PostList";
-import { Prompt } from "@/types";
+// import { Prompt } from "@/types";
 import Link from "next/link";
 import React from "react";
 import { BiCommentDetail } from "react-icons/bi";
@@ -13,7 +13,7 @@ import { MdRemoveRedEye } from "react-icons/md";
 
 type Props = {};
 
-const fakeData: Prompt[] = [
+const fakeData = [
   {
     id: 1,
     tag: "test",
@@ -105,7 +105,7 @@ export default function PostPage({}: Props) {
       <div className="columns-1 md:columns-2 gap-6">
         <div className="md:bg-gray-100 rounded-xl flex justify-center items-center p-0 md:px-12 md:py-3">
           <div className="w-full md:w-3/5">
-            <PostItemContent prompt={{ id: 1, tag: "" }} />
+            {/* <PostItemContent prompt={{ id: 1, tag: "" }} /> */}
           </div>
         </div>
 
@@ -145,6 +145,7 @@ export default function PostPage({}: Props) {
             <div className="flex flex-wrap gap-2">
               {[1, 2, 3, 4, 5, 6, 8].map((item) => (
                 <Link
+                  key={item}
                   href="#"
                   className="px-4 py-2 text-sm bg-gray-200 rounded-full"
                 >
@@ -158,7 +159,7 @@ export default function PostPage({}: Props) {
 
       <div className="flex flex-col gap-3 mt-5">
         <h2 className="font-bold text-2xl">More by @User</h2>
-        <PostList posts={fakeData} />
+        {/* <PostList posts={fakeData} /> */}
       </div>
     </div>
   );

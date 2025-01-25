@@ -2,7 +2,6 @@ import Dropdown from "@/components/Dropdown";
 import PostList from "@/components/PostList";
 import SearchBar from "@/components/SearchBar";
 import SearchTag from "@/components/SearchTag";
-import { getPost } from "@/server/actions/post";
 import React from "react";
 
 type Props = {};
@@ -11,8 +10,6 @@ const PLATFORMS_OPTIONS = ["All Platforms", "Dall E", "Firefly", "MidJourney"];
 const SORT_OPTIONS = ["Popular", "Recent"];
 
 export default async function InspirationsPage({}: Props) {
-  const response = await getPost();
-
   return (
     <main className="flex flex-col gap-6 pt-8 container">
       <SearchBar />
@@ -39,7 +36,7 @@ export default async function InspirationsPage({}: Props) {
 
       <SearchTag />
 
-      {response.data != null && <PostList posts={response.data} />}
+      {/* {response.data != null && <PostList posts={response.data} />} */}
     </main>
   );
 }
