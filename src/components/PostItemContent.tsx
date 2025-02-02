@@ -1,10 +1,10 @@
 import { isIPostText } from "@/guards";
-import { IPost } from "@/server/database/models/post";
+import { IPost, PostEntity } from "@/server/database/models/post";
 import Image from "next/image";
 import React from "react";
 
 type Props = {
-  post: IPost;
+  post: PostEntity;
 };
 
 const PostItemContent = ({ post }: Props) => {

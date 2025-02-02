@@ -1,12 +1,9 @@
 import Feed from "@/components/Feed";
 import SearchBar from "@/components/SearchBar";
-import { getPost } from "@/server/actions/posts/getPosts";
 import { getTrendingPosts } from "@/server/actions/posts/getTrendingPosts";
 
 export default async function Home() {
   const response = await getTrendingPosts();
-
-  console.log(response);
 
   return (
     <main className="pt-16 flex flex-col items-center px-3">
@@ -25,9 +22,7 @@ export default async function Home() {
           </p>
 
           <div className="flex justify-center items-center w-full">
-            <div className="w-full md:w-1/2">
-              <SearchBar />
-            </div>
+            <SearchBar redirectToSearch={true} />
           </div>
         </section>
 

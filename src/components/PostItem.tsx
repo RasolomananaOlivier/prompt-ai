@@ -1,10 +1,10 @@
 import React from "react";
 import PostItemContent from "./PostItemContent";
-import { IPost } from "@/server/database/models/post";
+import { IPost, PostEntity } from "@/server/database/models/post";
 import { Eye, ThumbsUp } from "lucide-react";
 
 type Props = {
-  post: IPost;
+  post: PostEntity;
 };
 
 function PostItem({ post }: Props) {
@@ -14,7 +14,7 @@ function PostItem({ post }: Props) {
         {post.tags.map((tag, index) => (
           <div
             key={index}
-            className="rounded-full bg-orange-300 max-w-min text-sm px-3 font-bold text-orange-800"
+            className="rounded-full bg-orange-200 max-w-min text-sm px-3 font-bold text-orange-800"
           >
             coding
           </div>

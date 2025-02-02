@@ -1,6 +1,9 @@
 import { model, models, Schema, Types } from "mongoose";
+import { IUser } from "./user";
+import { IPlatform } from "./platform";
+import { ITag } from "./tag";
 
-export interface IPost {
+export type IPost = {
   title: string;
   prompt?: string;
   url?: string;
@@ -11,7 +14,13 @@ export interface IPost {
   tags: Types.ObjectId[];
   createdAt: Date;
   updatedAt: Date;
-}
+};
+
+export type PostEntity = Omit<IPost, "author" | "platforms" | "tags"> & {
+  author: IUser;
+  platforms: IPlatform[];
+  tags: ITag[];
+};
 
 const postSchema = new Schema<IPost>(
   {
@@ -19,7 +28,7 @@ const postSchema = new Schema<IPost>(
     prompt: { type: String, required: false },
     url: { type: String, required: false },
     views: { type: Number, default: 0 },
-    likes : { type : Number, default: 0 },
+    likes: { type: Number, default: 0 },
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",

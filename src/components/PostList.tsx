@@ -1,9 +1,9 @@
 import React from "react";
 import PostItem from "./PostItem";
-import { IPost } from "@/server/database/models/post";
+import { IPost, PostEntity } from "@/server/database/models/post";
 
 type Props = {
-  posts: IPost[];
+  posts: PostEntity[];
 };
 
 function PostList({ posts }: Props) {

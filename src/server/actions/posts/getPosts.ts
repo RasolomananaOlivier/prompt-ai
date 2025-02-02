@@ -1,6 +1,6 @@
 import connectDB from "@/server/database/database";
 import Platform from "@/server/database/models/platform";
-import Post, { IPost } from "@/server/database/models/post";
+import Post, { IPost, PostEntity } from "@/server/database/models/post";
 import Tag from "@/server/database/models/tag";
 import User from "@/server/database/models/user";
 import { FilterQuery } from "mongoose";
@@ -40,18 +40,18 @@ async function getPostQuery(params: PostParams) {
   }
 
   if (searchTerm && searchTerm !== "") {
-    query["prompt"] = {
-      $regex: searchTerm,
-      $options: "i",
-    };
+    query["$or"] = [
+      { title: { $regex: searchTerm, $options: "i" } },
+      { prompt: { $regex: searchTerm, $options: "i" } },
+    ];
   }
 
   return query;
 }
 
-export async function getPost(
+export async function getPosts(
   params: PostParams
-): Promise<IResponse<any | null>> {
+): Promise<IResponse<PostEntity[] | null>> {
   try {
     await connectDB();
 
@@ -66,7 +66,7 @@ export async function getPost(
     return {
       status: "success",
       message: "Post retrieved",
-      data: posts,
+      data: posts as PostEntity[],
     };
   } catch (error) {
     return {
