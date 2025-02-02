@@ -1,6 +1,7 @@
 import Feed from "@/components/Feed";
 import SearchBar from "@/components/SearchBar";
 import { getTrendingPosts } from "@/server/actions/posts/getTrendingPosts";
+import { Suspense } from "react";
 
 export default async function Home() {
   const response = await getTrendingPosts();
@@ -22,7 +23,9 @@ export default async function Home() {
           </p>
 
           <div className="flex justify-center items-center w-full">
-            <SearchBar redirectToSearch={true} />
+            <Suspense>
+              <SearchBar redirectToSearch={true} />
+            </Suspense>
           </div>
         </section>
 

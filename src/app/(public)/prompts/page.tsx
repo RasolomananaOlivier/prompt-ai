@@ -2,7 +2,7 @@ import Dropdown from "@/components/Dropdown";
 import PostList from "@/components/PostList";
 import SearchBar from "@/components/SearchBar";
 import SearchTag from "@/components/SearchTag";
-import React from "react";
+import React, { Suspense } from "react";
 
 type Props = {};
 
@@ -12,7 +12,9 @@ const SORT_OPTIONS = ["Popular", "Recent"];
 export default async function InspirationsPage({}: Props) {
   return (
     <main className="flex flex-col gap-6 pt-8 container">
-      <SearchBar />
+      <Suspense>
+        <SearchBar />
+      </Suspense>
 
       <div className="flex flex-col lg:flex-row gap-3">
         <div className="flex flex-col gap-3">

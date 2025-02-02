@@ -3,7 +3,7 @@ import Dropdown from "@/components/Dropdown";
 import PostList from "@/components/PostList";
 import SearchBar from "@/components/SearchBar";
 import SearchTag from "@/components/SearchTag";
-import React from "react";
+import React, { Suspense } from "react";
 
 type Props = {};
 
@@ -29,7 +29,9 @@ function InspirationsPage({}: Props) {
       </div>
 
       <div className="w-full flex flex-col md:flex-row items-start md:items-end gap-3">
-        <SearchBar />
+        <Suspense>
+          <SearchBar />
+        </Suspense>
 
         <div className="flex gap-3 pr-5">
           <Dropdown options={PLATFORMS_OPTIONS} />
