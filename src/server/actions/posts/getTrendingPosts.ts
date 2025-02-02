@@ -1,11 +1,13 @@
 import connectDB from "@/server/database/database";
 import Like from "@/server/database/models/like";
 import Platform from "@/server/database/models/platform";
-import Post from "@/server/database/models/post";
+import Post, { PostEntity } from "@/server/database/models/post";
 import Tag from "@/server/database/models/tag";
 import User from "@/server/database/models/user";
 
-export async function getTrendingPosts(): Promise<IResponse<any | null>> {
+export async function getTrendingPosts(): Promise<
+  IResponse<PostEntity[] | null>
+> {
   try {
     await connectDB();
 

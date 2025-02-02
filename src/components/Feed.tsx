@@ -1,10 +1,10 @@
 import React from "react";
 import PostList from "./PostList";
 import Link from "next/link";
-import { IPost } from "@/server/database/models/post";
+import { PostEntity } from "@/server/database/models/post";
 
 type Props = {
-  posts: IPost[];
+  posts: PostEntity[];
 };
 
 const Feed = ({ posts }: Props) => {
